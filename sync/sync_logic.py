@@ -1,4 +1,3 @@
-# sync/sync_logic.py
 import logging
 import os
 from clients.custom_exceptions import ApiError
