@@ -173,7 +173,7 @@ AI (mainly Gemini) helped with:
 
 # 🎥 Walkthrough Video
 
-👉 **
+👉 *https://drive.google.com/file/d/1cKlEMfMtPvA-wn2dpSYI7AYd1mSYOTna/view?usp=sharing*
 
 ---
 
