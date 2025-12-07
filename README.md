@@ -1,5 +1,7 @@
 # 🚀 Two-Way Sync Automation: Airtable ↔ ClickUp
 
+> **Note:** This README was generated with the help of AI — please don't judge me for that 😄
+
 This project implements a clean, reliable, and idempotent two-way sync between **Airtable** (as a Lead Tracker) and **ClickUp** (as a Work Tracker).  
 It ensures that whenever a lead changes in Airtable, the corresponding task in ClickUp updates — and whenever a task changes in ClickUp, the corresponding lead in Airtable updates.  
 No duplicates. No mismatches. Just consistent data across both systems.
