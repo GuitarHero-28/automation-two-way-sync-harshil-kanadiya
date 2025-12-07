@@ -12,8 +12,6 @@ This project delivers a robust, **idempotent synchronization layer** between a L
 
 ### Status Mapping
 
-The following mapping translates statuses between Airtable and ClickUp, based on the three statuses available in the ClickUp List (`To Do`, `In Progress`, `Complete`).
-
 | Lead Tracker (Airtable Status) | Work Tracker (ClickUp Status) | Direction of Sync | Notes |
 | :--- | :--- | :--- | :--- |
 | **NEW** | To Do | Lead → Task | Initial task state. |
@@ -29,11 +27,11 @@ The sync logic runs sequentially to maintain order and data integrity.
 
 ```mermaid
 graph TD
-    A[Airtable Leads] -->|1. Poll Leads (AirtableClient)| B(sync_logic.py);
-    B -->|2. Check Cross-Ref ID| C{Task Exists?};
-    C -- YES --> D[ClickUp Task Update (PUT)];
-    C -- NO --> E[ClickUp Task Create (POST)];
-    E -->|3. Write New ClickUp ID Back| A;
+    A[Airtable Leads] -->|Poll Leads (AirtableClient)| B(sync_logic.py)
+    B -->|Check Cross-Ref ID| C{Task Exists?}
+    C -- YES --> D[Update Task in ClickUp]
+    C -- NO --> E[Create Task in ClickUp]
+    E -->|Write ClickUp Task ID Back| A
     
-    B -->|4. Poll Recently Updated Tasks (ClickUpClient)| F{Check Task Status Change};
-    F -->|5. Update Lead Status| A;
+    B -->|Poll Updated Tasks (ClickUpClient)| F{Status Changed?}
+    F -->|Update Lead Status| A
